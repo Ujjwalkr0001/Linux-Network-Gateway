@@ -55,7 +55,7 @@ The gateway will evolve progressively from a basic blocking TCP socket server in
 - [x] **Phase 17**: Gateway Stress Tester & Fuzzer (Malformed inputs, slowloris simulation)
 - [x] **Phase 18**: System Call & Resilience Audit (Partial write handling, socket resets)
 - [x] **Phase 19**: Dynamic Analysis & Sanitizers (ASan, UBSan, TSan, GDB core dump analysis)
-- [ ] **Phase 20**: Automated Unit Testing Suite (GoogleTest setup for parsers & routing)
+- [x] **Phase 20**: Automated Unit Testing Suite (GoogleTest setup for parsers & routing)
 - [ ] **Phase 21**: Configuration Subsystem (File-based runtime gateway config)
 - [ ] **Phase 22**: Security Audit & Threat Modeling (DoS vectors, educational vs prod)
 - [ ] **Phase 23**: Educational Linux Kernel Module (Kernel vs user space, procfs/sysfs)
@@ -147,7 +147,7 @@ The gateway will evolve progressively from a basic blocking TCP socket server in
 - **Concepts**: Compiler instrumentation, AddressSanitizer (`-fsanitize=address`), UndefinedBehaviorSanitizer (`-fsanitize=undefined`), ThreadSanitizer (`-fsanitize=thread`), Valgrind Memcheck & Helgrind, GDB backtrace analysis.
 - **Deliverables**: Clean sanitizer execution report with zero leaks, races, or UB.
 
-### - [ ] Phase 20: Automated GoogleTest Unit Testing Suite
+### - [x] Phase 20: Automated GoogleTest Unit Testing Suite
 - **Concepts**: Unit testing best practices, test fixtures, mocking I/O interfaces, test-driven validation.
 - **Deliverables**: Automated `ctest` setup testing binary serialization, routing lookup, and rate limiting logic.
 
