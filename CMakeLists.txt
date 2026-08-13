@@ -16,6 +16,26 @@ add_compile_options(
     -g
 )
 
+# Compiler Sanitizer Options
+option(ENABLE_ASAN "Enable AddressSanitizer" OFF)
+option(ENABLE_UBSAN "Enable UndefinedBehaviorSanitizer" OFF)
+option(ENABLE_TSAN "Enable ThreadSanitizer" OFF)
+
+if(ENABLE_ASAN)
+    add_compile_options(-fsanitize=address -fno-omit-frame-pointer)
+    add_link_options(-fsanitize=address)
+endif()
+
+if(ENABLE_UBSAN)
+    add_compile_options(-fsanitize=undefined)
+    add_link_options(-fsanitize=undefined)
+endif()
+
+if(ENABLE_TSAN)
+    add_compile_options(-fsanitize=thread)
+    add_link_options(-fsanitize=thread)
+endif()
+
 # Executable Targets
 add_executable(env_check tools/env_check.cpp)
 add_executable(phase1_tcp_server src/phase1_tcp_server.cpp)
@@ -32,6 +52,12 @@ add_executable(phase11_udp_server src/phase11_udp_server.cpp)
 add_executable(phase12_rate_limiter src/phase12_rate_limiter.cpp)
 add_executable(phase13_auth_system src/phase13_auth_system.cpp)
 add_executable(phase14_async_logger src/phase14_async_logger.cpp)
+add_executable(phase15_telemetry_dashboard src/phase15_telemetry_dashboard.cpp)
+add_executable(phase16_benchmarking_suite src/phase16_benchmarking_suite.cpp)
+add_executable(phase17_stress_fuzzer src/phase17_stress_fuzzer.cpp)
+add_executable(phase18_resilience_audit src/phase18_resilience_audit.cpp)
+add_executable(phase19_sanitizers_demo src/phase19_sanitizers_demo.cpp)
+add_executable(phase20_unit_tests src/phase20_unit_tests.cpp)
 
 find_package(Threads REQUIRED)
 target_link_libraries(env_check PRIVATE Threads::Threads)
@@ -49,3 +75,18 @@ target_link_libraries(phase11_udp_server PRIVATE Threads::Threads)
 target_link_libraries(phase12_rate_limiter PRIVATE Threads::Threads)
 target_link_libraries(phase13_auth_system PRIVATE Threads::Threads)
 target_link_libraries(phase14_async_logger PRIVATE Threads::Threads)
+target_link_libraries(phase15_telemetry_dashboard PRIVATE Threads::Threads)
+target_link_libraries(phase16_benchmarking_suite PRIVATE Threads::Threads)
+target_link_libraries(phase17_stress_fuzzer PRIVATE Threads::Threads)
+target_link_libraries(phase18_resilience_audit PRIVATE Threads::Threads)
+target_link_libraries(phase19_sanitizers_demo PRIVATE Threads::Threads)
+target_link_libraries(phase20_unit_tests PRIVATE Threads::Threads)
+
+# CTest Integration
+enable_testing()
+add_test(NAME GatewayUnitTests COMMAND phase20_unit_tests)
+
+
+
+
+

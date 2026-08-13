@@ -49,12 +49,12 @@ The gateway will evolve progressively from a basic blocking TCP socket server in
 - [x] **Phase 11**: Datagram Subsystem / UDP Listener (`sendto`, `recvfrom`, UDP vs TCP)
 - [x] **Phase 12**: Concurrency-Safe Rate Limiter (Token bucket algorithm, `std::atomic`)
 - [x] **Phase 13**: Session Authentication System (AUTH state machine & handshakes)
-- [ ] **Phase 14**: Asynchronous Low-Overhead Logger (Ring buffer logging subsystem)
-- [ ] **Phase 15**: Telemetry & Live CLI Dashboard (Throughput, dropped packets, latencies)
-- [ ] **Phase 16**: Empirical Benchmarking Suite (Comparative analysis across Phase 3/4/8)
-- [ ] **Phase 17**: Gateway Stress Tester & Fuzzer (Malformed inputs, slowloris simulation)
-- [ ] **Phase 18**: System Call & Resilience Audit (Partial write handling, socket resets)
-- [ ] **Phase 19**: Dynamic Analysis & Sanitizers (ASan, UBSan, TSan, GDB core dump analysis)
+- [x] **Phase 14**: Asynchronous Low-Overhead Logger (Ring buffer logging subsystem)
+- [x] **Phase 15**: Telemetry & Live CLI Dashboard (Throughput, dropped packets, latencies)
+- [x] **Phase 16**: Empirical Benchmarking Suite (Comparative analysis across Phase 3/4/8)
+- [x] **Phase 17**: Gateway Stress Tester & Fuzzer (Malformed inputs, slowloris simulation)
+- [x] **Phase 18**: System Call & Resilience Audit (Partial write handling, socket resets)
+- [x] **Phase 19**: Dynamic Analysis & Sanitizers (ASan, UBSan, TSan, GDB core dump analysis)
 - [ ] **Phase 20**: Automated Unit Testing Suite (GoogleTest setup for parsers & routing)
 - [ ] **Phase 21**: Configuration Subsystem (File-based runtime gateway config)
 - [ ] **Phase 22**: Security Audit & Threat Modeling (DoS vectors, educational vs prod)
@@ -127,23 +127,23 @@ The gateway will evolve progressively from a basic blocking TCP socket server in
 - **Concepts**: I/O bottleneck in logging, lock-free ring buffers, dedicated background logging worker thread, log levels (`DEBUG`, `INFO`, `WARN`, `ERROR`), ISO 8601 timestamps.
 - **Deliverables**: High-throughput non-blocking logger for gateway diagnostics.
 
-### - [ ] Phase 15: Real-Time Telemetry & Live CLI Dashboard
+### - [x] Phase 15: Real-Time Telemetry & Live CLI Dashboard
 - **Concepts**: Performance counter collection, CPU usage reading via `/proc/self/stat`, Resident Set Size (RSS) memory tracking, terminal formatting (ANSI escape codes).
 - **Deliverables**: Live updating terminal UI displaying active connections, throughput (MB/s), latency, and packet drops.
 
-### - [ ] Phase 16: Empirical Performance Benchmarking Suite
+### - [x] Phase 16: Empirical Performance Benchmarking Suite
 - **Concepts**: Micro-benchmarking vs end-to-end benchmarking, latency percentile measurement ($P_{50}$, $P_{99}$), measuring performance degradation under high connection scale.
 - **Deliverables**: Benchmarking tool measuring throughput and latency across Thread-per-Client (Phase 3), Thread Pool (Phase 4), and Epoll Reactor (Phase 8).
 
-### - [ ] Phase 17: Gateway Stress Tester & Fuzzing Tool
+### - [x] Phase 17: Gateway Stress Tester & Fuzzing Tool
 - **Concepts**: Robustness testing, TCP SYN flooding, Slowloris attack simulation, malformed binary packet fuzzing, connection churn testing.
 - **Deliverables**: Custom stress test suite ensuring zero crashes or memory corruption under attack.
 
-### - [ ] Phase 18: System Call & Memory Resilience Audit
+### - [x] Phase 18: System Call & Memory Resilience Audit
 - **Concepts**: Defensive programming, errno handling (`EINTR`, `EPIPE`, `ECONNRESET`), stack allocation safety, memory allocation failure guards.
 - **Deliverables**: System-wide error handling audit fixing socket leakage edges.
 
-### - [ ] Phase 19: Dynamic Analysis & Sanitizer Verification
+### - [x] Phase 19: Dynamic Analysis & Sanitizer Verification
 - **Concepts**: Compiler instrumentation, AddressSanitizer (`-fsanitize=address`), UndefinedBehaviorSanitizer (`-fsanitize=undefined`), ThreadSanitizer (`-fsanitize=thread`), Valgrind Memcheck & Helgrind, GDB backtrace analysis.
 - **Deliverables**: Clean sanitizer execution report with zero leaks, races, or UB.
 
