@@ -1,9 +1,19 @@
 cmake_minimum_required(VERSION 3.15)
-project(LinuxNetworkGateway CXX)
+project(LinuxNetworkGateway
+    VERSION 1.0.0
+    DESCRIPTION "High-Performance C++ Linux Network Gateway (25-Phase Educational Project)"
+    LANGUAGES CXX C
+)
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
+
+# Default build type: Debug if not specified
+if(NOT CMAKE_BUILD_TYPE)
+    set(CMAKE_BUILD_TYPE Debug CACHE STRING "Build type (Debug, Release, RelWithDebInfo)" FORCE)
+endif()
+message(STATUS "[LinuxNetworkGateway] Build type: ${CMAKE_BUILD_TYPE}")
 
 # Include project headers directory
 include_directories(${CMAKE_SOURCE_DIR}/include)
@@ -13,8 +23,13 @@ add_compile_options(
     -Wextra
     -Wpedantic
     -Werror=return-type
-    -g
 )
+
+# Per-build-type compiler flags
+set(CMAKE_CXX_FLAGS_DEBUG          "-g -O0 -DDEBUG")
+set(CMAKE_CXX_FLAGS_RELEASE        "-O3 -DNDEBUG")
+set(CMAKE_CXX_FLAGS_RELWITHDEBINFO "-O2 -g -DNDEBUG")
+
 
 # Compiler Sanitizer Options
 option(ENABLE_ASAN "Enable AddressSanitizer" OFF)
