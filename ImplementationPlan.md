@@ -56,10 +56,10 @@ The gateway will evolve progressively from a basic blocking TCP socket server in
 - [x] **Phase 18**: System Call & Resilience Audit (Partial write handling, socket resets)
 - [x] **Phase 19**: Dynamic Analysis & Sanitizers (ASan, UBSan, TSan, GDB core dump analysis)
 - [x] **Phase 20**: Automated Unit Testing Suite (GoogleTest setup for parsers & routing)
-- [ ] **Phase 21**: Configuration Subsystem (File-based runtime gateway config)
-- [ ] **Phase 22**: Security Audit & Threat Modeling (DoS vectors, educational vs prod)
-- [ ] **Phase 23**: Educational Linux Kernel Module (Kernel vs user space, procfs/sysfs)
-- [ ] **Phase 24**: Packet Capture Subsystem (Raw socket / libpcap dissection)
+- [x] **Phase 21**: Configuration Subsystem (File-based runtime gateway config)
+- [x] **Phase 22**: Security Audit & Threat Modeling (DoS vectors, educational vs prod)
+- [x] **Phase 23**: Educational Linux Kernel Module (Kernel vs user space, procfs/sysfs)
+- [x] **Phase 24**: Packet Capture Subsystem (Raw socket / libpcap dissection)
 - [ ] **Phase 25**: Codebase Modularization & Production Packaging (CMake & Final README)
 
 ---
@@ -151,19 +151,19 @@ The gateway will evolve progressively from a basic blocking TCP socket server in
 - **Concepts**: Unit testing best practices, test fixtures, mocking I/O interfaces, test-driven validation.
 - **Deliverables**: Automated `ctest` setup testing binary serialization, routing lookup, and rate limiting logic.
 
-### - [ ] Phase 21: Runtime Configuration Subsystem
+### - [x] Phase 21: Runtime Configuration Subsystem
 - **Concepts**: Configuration file parsing, decoupling build parameters from runtime parameters, dynamic hot-reloading concepts.
 - **Deliverables**: Config loader supporting port, thread pool size, rate limits, and log levels.
 
-### - [ ] Phase 22: Security Audit & Threat Modeling
+### - [x] Phase 22: Security Audit & Threat Modeling
 - **Concepts**: Attack surface reduction, buffer boundary enforcement, Resource Exhaustion DoS analysis, educational vs production-grade security gaps.
 - **Deliverables**: Comprehensive security threat matrix document.
 
-### - [ ] Phase 23: Educational Linux Kernel Module (Optional Extension)
+### - [x] Phase 23: Educational Linux Kernel Module (Optional Extension)
 - **Concepts**: User space vs Kernel space ring separation (Ring 3 vs Ring 0), kernel module entry/exit (`init_module`/`cleanup_module`), character devices, `procfs`/`sysfs` driver interfaces, kernel logging (`printk`).
 - **Deliverables**: Minimal custom Linux kernel module exposing kernel-level gateway packet statistics.
 
-### - [ ] Phase 24: Packet Capture & Dissection Subsystem (Optional Extension)
+### - [x] Phase 24: Packet Capture & Dissection Subsystem (Optional Extension)
 - **Concepts**: Promiscuous mode, Linux raw sockets (`AF_PACKET`), `libpcap` integration, BPF (Berkeley Packet Filters), Wireshark equivalence.
 - **Deliverables**: Raw packet sniffer tool parsing Ethernet/IP/TCP headers.
 

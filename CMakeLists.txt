@@ -58,6 +58,10 @@ add_executable(phase17_stress_fuzzer src/phase17_stress_fuzzer.cpp)
 add_executable(phase18_resilience_audit src/phase18_resilience_audit.cpp)
 add_executable(phase19_sanitizers_demo src/phase19_sanitizers_demo.cpp)
 add_executable(phase20_unit_tests src/phase20_unit_tests.cpp)
+add_executable(phase21_config_subsystem src/phase21_config_subsystem.cpp)
+add_executable(phase22_security_audit src/phase22_security_audit.cpp)
+add_executable(phase23_kernel_module_demo src/phase23_kernel_module_demo.cpp)
+add_executable(phase24_packet_capture src/phase24_packet_capture.cpp)
 
 find_package(Threads REQUIRED)
 target_link_libraries(env_check PRIVATE Threads::Threads)
@@ -81,9 +85,17 @@ target_link_libraries(phase17_stress_fuzzer PRIVATE Threads::Threads)
 target_link_libraries(phase18_resilience_audit PRIVATE Threads::Threads)
 target_link_libraries(phase19_sanitizers_demo PRIVATE Threads::Threads)
 target_link_libraries(phase20_unit_tests PRIVATE Threads::Threads)
+target_link_libraries(phase21_config_subsystem PRIVATE Threads::Threads)
+target_link_libraries(phase22_security_audit PRIVATE Threads::Threads)
+target_link_libraries(phase23_kernel_module_demo PRIVATE Threads::Threads)
+target_link_libraries(phase24_packet_capture PRIVATE Threads::Threads)
 
 # CTest Integration
 enable_testing()
+
+
+
+
 add_test(NAME GatewayUnitTests COMMAND phase20_unit_tests)
 
 
